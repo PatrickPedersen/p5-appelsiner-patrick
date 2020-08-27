@@ -8,7 +8,7 @@ let grav = 0.1;
 let score = 0;
 let life = 3;
 let button;
-let debug = false;
+let debug = true;
 
 //Object variabler
 let turban1;
@@ -28,7 +28,8 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(750, 600);
+    let myCanvas = createCanvas(750, 600);
+    myCanvas.parent("div-game");
 
     // parametrene til konstruktøren er (x, y, bredde, dybde, speed)
     turban1 = new Turban(600,400,70,50);
@@ -46,8 +47,9 @@ function setup() {
     }
 
     button = createButton('Genstart');
+    button.parent("button-wrapper");
+    button.position(canvas.width/2 - 30, canvas.height/2 + 20);
     button.hide();
-    button.position(width/2-30,height/2+20);
 
 }
 
@@ -81,7 +83,7 @@ function draw() {
         fill(255);
         textSize(40);
         textAlign(CENTER,CENTER);
-        text(`Game Over\nScore: ${score}`, width/2, height/2-40);
+        text(`Game Over\nScore: ${score}`, canvas.width/2, canvas.height/2-40);
         button.show();
         button.mousePressed(restart);
     }
