@@ -4,7 +4,8 @@
   "description": "Multiplayer browser game",
   "main": "server/server.js",
   "scripts": {
-    "test": "nodemon server/server.js"
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
   },
   "keywords": [
     "Multiplayer",

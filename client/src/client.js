@@ -19,11 +19,13 @@ const onChatSubmitted = (sock) => (e) => {
 
 (() => {
 
+    const canvas = document.querySelector('canvas');
     const sock = io();
 
-    sock.on('message')
+    sock.on('message', log);
 
     document
         .querySelector('#chat-form')
-        .addEventListener('submit', onChatSubmitted);
-});
+        .addEventListener('submit', onChatSubmitted(sock));
+
+})();
