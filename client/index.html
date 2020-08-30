@@ -11,13 +11,20 @@
         <!-- Modal content -->
         <div class="modal-content">
             <h1 class="modal-title">What's your nickname?</h1>
-            <input id="nickname-input" class="custom-input" type="text" />
+            <input id="nickname-input" class="custom-input" type="text"/>
         </div>
     </div>
     <div class="container-fluid" style="max-width: 1400px;">
+        <div class="header">
+            <h2 id="room-name">Hello</h2>
+        </div>
         <div class="containerGame">
             <div id="containerPlayerlist">
                 <div id="containerGamePlayers">
+                    <div class="player" id="player2" style="">
+                        <div class="name">daw</div>
+                        <div class="score">Points: 0</div>
+                    </div>
                 </div>
                 <div>
                     <ul id="users-list">
@@ -37,7 +44,7 @@
                         </div>
                         <div id="boxChatInput">
                             <form id="formChat">
-                                <input id="message" class="vertical-align custom-input" type="text"/>
+                                <input id="inputChat" class="form-control" autocomplete="off" title="text"/>
                             </form>
                         </div>
                     </div>
@@ -65,6 +72,6 @@
     <!-- Client side scripts -->
     <script src="src/client.js" type="text/javascript"></script>
     <script src="src/modalScript.js" type="text/javascript"></script>
-    <script src="src/chat.js" type="text/javascript"></script>
+    <!-- <script src="src/chat.js" type="text/javascript"></script> -->
 </body>
 </html>

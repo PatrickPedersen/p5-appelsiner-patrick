@@ -21,6 +21,9 @@ let orange4 = true;
 let turbanImg;
 let orangeImg;
 
+//Game start eller stop
+let gameStart = false;
+
 //Load vores billeder
 function preload() {
     turbanImg = loadImage('./img/turban.png');
@@ -51,41 +54,45 @@ function setup() {
     button.position(canvas.width/2 - 40, canvas.height/2 + 20);
     button.hide();
 
+    background(0);
+
 }
 
 function draw() {
-    background(0);
+    if (gameStart === true) {
+        background(0);
 
-    if (life > 0) {
-        orange1.move();
-        orange1.display();
-        if (orange2) {
-            orange2.move();
-            orange2.display();
-        }
-        if (orange3) {
-            orange3.move();
-            orange3.display();
-        }
-        if (orange4) {
-            orange4.move();
-            orange4.display();
-        }
+        if (life > 0) {
+            orange1.move();
+            orange1.display();
+            if (orange2) {
+                orange2.move();
+                orange2.display();
+            }
+            if (orange3) {
+                orange3.move();
+                orange3.display();
+            }
+            if (orange4) {
+                orange4.move();
+                orange4.display();
+            }
 
-        turban1.display();
-        checkScore();
-        textSize(12);
-        textAlign(LEFT);
-        display();
-        turban1.moveX(mouseX);
-        turban1.moveY(mouseY);
-    } else {
-        fill(255);
-        textSize(40);
-        textAlign(CENTER,CENTER);
-        text(`Game Over\nScore: ${score}`, canvas.width/2, canvas.height/2-40);
-        button.show();
-        button.mousePressed(restart);
+            turban1.display();
+            checkScore();
+            textSize(12);
+            textAlign(LEFT);
+            display();
+            turban1.moveX(mouseX);
+            turban1.moveY(mouseY);
+        } else {
+            fill(255);
+            textSize(40);
+            textAlign(CENTER,CENTER);
+            text(`Game Over\nScore: ${score}`, canvas.width/2, canvas.height/2-40);
+            button.show();
+            button.mousePressed(restart);
+        }
     }
 }
 

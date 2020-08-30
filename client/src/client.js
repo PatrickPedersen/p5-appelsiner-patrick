@@ -1,7 +1,7 @@
-const log = (text) => {
-    const parent = document.querySelector('#events');
-    const el = document.createElement('li');
-    el.innerHTML = text;
+const log = (data) => {
+    const parent = document.querySelector('#boxMessages');
+    const el = document.createElement('p');
+    el.innerHTML = `${data.username}: ${data.message}`;
 
     parent.appendChild(el);
     parent.scrollTop = parent.scrollHeight;
@@ -10,22 +10,25 @@ const log = (text) => {
 const onChatSubmitted = (sock) => (e) => {
     e.preventDefault();
 
-    const input = document.querySelector('#chat');
+    const input = document.querySelector('#inputChat');
     const text = input.value;
     input.value = '';
 
-    sock.emit('message', text);
+    sock.emit('new_message', {message: text});
 };
 
 (() => {
 
-    const canvas = document.querySelector('canvas');
-    const sock = io();
+    const socket = io();
 
-    sock.on('message', log);
+    socket.on('new_message', (data) => {
+        log(data);
+    })
+
+
 
     document
-        .querySelector('#chat-form')
-        .addEventListener('submit', onChatSubmitted(sock));
+        .querySelector('#formChat')
+        .addEventListener('submit', onChatSubmitted(socket));
 
 })();
