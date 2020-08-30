@@ -7,31 +7,64 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div id="div-game">
-            <div id="button-wrapper"></div>
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <h1 class="modal-title">What's your nickname?</h1>
+            <input id="nickname-input" class="custom-input" type="text" />
         </div>
-        <div id="div-chat" class="controls-wrapper">
-            <ul id="events"></ul>
-            <div class="controls">
-                <div class="chat-wrapper">
-                    <form id="chat-form">
-                        <input id="chat" autocomplete="off" title="chat"/>
-                        <button id="say" class="chat-button">Say</button>
-                    </form>
+    </div>
+    <div class="container-fluid" style="max-width: 1400px;">
+        <div class="containerGame">
+            <div id="containerPlayerlist">
+                <div id="containerGamePlayers">
+                </div>
+                <div>
+                    <ul id="users-list">
+                    </ul>
+                </div>
+            </div>
+            <div id="containerBoard">
+                <div id="containerCanvas">
+                    <div id="button-wrapper"></div>
+                </div>
+            </div>
+            <div id="containerSidebar">
+                <div id="containerChat">
+                    <div id="boxChat">
+                        <div id="boxMessages">
+                            <div id="feedback"></div>
+                        </div>
+                        <div id="boxChatInput">
+                            <form id="formChat">
+                                <input id="message" class="vertical-align custom-input" type="text"/>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!-- P5 -->
     <script src="libraries/p5.js" type="text/javascript"></script>
     <script src="libraries/p5.dom.js" type="text/javascript"></script>
     <!-- <script src="libraries/p5.sound.js" type="text/javascript"></script> -->
 
+    <!-- Game files -->
     <script src="src/sketch.js" type="text/javascript"></script>
     <script src="src/turban.js" type="text/javascript"></script>
     <script src="src/appelsin.js" type="text/javascript"></script>
+
+    <!-- Socket Io -->
     <script src="/socket.io/socket.io.js"></script>
+
+    <!-- Client side scripts -->
     <script src="src/client.js" type="text/javascript"></script>
+    <script src="src/modalScript.js" type="text/javascript"></script>
+    <script src="src/chat.js" type="text/javascript"></script>
 </body>
 </html>
